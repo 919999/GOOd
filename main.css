@@ -26,3 +26,7 @@ footer {
     font-style: italic;
     text-align: right;
 }
+a {
+    text-decoration: none;
+    color: rgb(13, 21, 122);
+}
