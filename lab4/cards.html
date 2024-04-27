@@ -1,0 +1,167 @@
+<!DOCTYPE html> 
+<html lang="ru"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Васюков Тимур Александрович. Карточки</title> 
+    <link rel="stylesheet" href="../main.css"> 
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon"> 
+    <link rel="icon" href="../favicon-16x16.png"> 
+    <link rel="icon" href="../favicon-32x32.png"> 
+    <style> 
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 100px;
+        }
+        .card { 
+            border: 2px solid rgb(76, 140, 177);  
+            border-radius: 30px;  
+            box-shadow: 6px 6px 17px rgba(0, 100, 92, 0.397);   
+            margin: 15px; 
+            text-align: center; 
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; 
+            display: inline-block;  
+            font-size: 17px;
+            width: 320px; 
+            height: 535px;
+            background-color: rgb(185, 233, 233); 
+        } 
+ 
+        .price { 
+            color: rgba(0, 0, 0, 0.685); 
+            font-size: 22px; 
+        } 
+ 
+        .card button { 
+            border: none; 
+            outline: 0; 
+            padding: 12px; 
+            color: rgb(255, 255, 255); 
+            background-color: rgb(76, 140, 177);
+            text-align: center; 
+            cursor: pointer; 
+            width: 100%; 
+            font-size: 18px; 
+            border-radius: 30px;
+            height: 47px;
+            font-size: 20px;
+        } 
+        img { 
+            transition: transform .2s; 
+            width: 280px;
+            height: 280px;
+            object-fit: cover;
+            border-radius: 30px;
+        } 
+        img:hover { 
+            transform: scale(1.35); 
+            border: 1px solid #041b02;
+        } 
+    </style> 
+</head> 
+<body> 
+    <header> 
+        НГТУ, ФБ, Лабораторная работа 4 
+    </header> 
+ 
+    <main> 
+        <div class="card-container">
+            <div class="card"> 
+                <img src="../m1.jpeg" alt="Букет" style="width:100%"> 
+                <h1>Майк<br>Длинноволоски</h1> 
+                <p class="price">75 $</p> 
+                <p> 
+                    Умный и находчивый монстрик
+                </p> 
+                <button><b>Купить</b></button> 
+            </div> 
+            <div class="card"> 
+                <img src="../m2.jpg" alt="Букет" style="width:100%"> 
+                <h1>Майк<br>Горшовски</h1> 
+                <p class="price">45 $</p> 
+                <p> 
+                    Зеленый циклоп с большим сердцем 
+                </p> 
+                <button><b>Купить</b></button> 
+            </div> 
+            <div class="card"> 
+                <img src="../m3.jpg" style="width:100%"> 
+                <h1>Майк<br>Машовски</h1> 
+                <p class="price">70 $</p> 
+                <p> 
+                    Неунывающий зеленый монстр
+                </p>
+                <button><b>Купить</b></button> 
+            </div> 
+            <div class="card"> 
+                <img src="../m4.jpg" alt="Букет" style="width:100%"> 
+                <h1>Майк<br>Дедовски</h1> 
+                <p class="price">100 $</p> 
+                <p> 
+                    Храбрый зеленый монстр 
+                </p> 
+                <button><b>Купить</b></button> 
+            </div> 
+            <div class="card"> 
+                <img src="../m5.jpg" alt="Букет" style="width:100%"> 
+                <h1>Майк<br>Зубовски</h1> 
+                <p class="price">30 $</p> 
+                <p> 
+                    Оптимистичный зеленый монстр
+                </p> 
+                <button><b>Купить</b></button> 
+            </div> 
+            <div class="card"> 
+                <img src="../m6.jpg" alt="Букет" style="width:100%"> 
+                <h1>Майк<br>Пловски</h1> 
+                <p class="price">35 $</p> 
+                <p> 
+                    Веселый и дружелюбный монстр 
+                </p> 
+                <button><b>Купить</b></button> 
+            </div> 
+            <div class="card"> 
+                <img src="../m7.jpg" alt="Букет" style="width:100%"> 
+                <h1>Майк<br>Си-Джейски</h1> 
+                <p class="price">150 $</p> 
+                <p> 
+                    Забавный циклоп 
+                </p> 
+                <button><b>Купить</b></button> 
+            </div> 
+            <div class="card"> 
+                <img src="../m8.jpg" alt="Букет" style="width:100%"> 
+                <h1>Майк<br>Стильски</h1> 
+                <p class="price">90 $</p> 
+                <p> 
+                    Озорной циклоп
+                </p> 
+                <button><b>Купить</b></button> 
+            </div> 
+            <div class="card"> 
+                <img src="../m9.jpg" alt="Букет" style="width:100%"> 
+                <h1>Майк<br>Картошски</h1> 
+                <p class="price">60 $</p> 
+                <p> 
+                    Энергичный циклоп 
+                </p> 
+                <button><b>Купить</b></button> 
+            </div> 
+            <div class="card"> 
+                <img src="../m10.jpg" alt="Букет" style="width:100%"> 
+                <h1>Майк Невыспаловски</h1> 
+                <p class="price">25 $</p> 
+                <p> 
+                    Отзывчивый циклоп 
+                </p> 
+                <button><b>Купить</b></button> 
+            </div> 
+    </main> 
+ 
+    <footer> 
+        &copy;Васюков Тимур, ФБИ-22, 2 курс, 2024 
+    </footer> 
+</body> 
+</html>
