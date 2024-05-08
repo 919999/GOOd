@@ -1,0 +1,85 @@
+<!DOCTYPE html> 
+<html lang="ru"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Васюков Тимур Александрович.</title> 
+    <link rel="stylesheet" href="../main.css"> 
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"> 
+    <link rel="icon" href="../favicon-16x16.png"> 
+    <link rel="icon" href="../favicon-32x32.png">  
+    <style> 
+        .circle { 
+            width: 100px; 
+            height: 100px; 
+            border-radius: 50%; 
+            display: inline-block; 
+            position: absolute; 
+            cursor: pointer; 
+            text-align: center; 
+            line-height: 100px; 
+            font-size: 50px; 
+            font-weight: bold; 
+            color: aliceblue;
+            border:solid;
+            border-color: black;
+        } 
+    </style> 
+</head> 
+<body> 
+    <header> 
+        НГТУ, ФБ, Лабораторная работа 5 
+    </header> 
+ 
+    <main> 
+        <div id="container"></div> 
+        <button onclick="resetCircles()">Сбросить</button> 
+ 
+        <script> 
+            function resetCircles() { 
+                var circles = document.querySelectorAll('.circle'); 
+                circles.forEach(function(circle) { 
+                    circle.style.opacity = 1; 
+                    circle.style.width = '100px'; 
+                    circle.style.height = '100px'; 
+                }); 
+            } 
+ 
+            function hideCircle(circle) { 
+                circle.style.transition = 'opacity 1s, width 1s, height 1s'; 
+                circle.style.opacity = 0; 
+                circle.style.width = 0; 
+                circle.style.height = 0; 
+            } 
+ 
+            var container = document.getElementById('container'); 
+ 
+            for (var i = 1; i <= 10; i++) { 
+                var circle = document.createElement('div'); 
+                circle.className = 'circle'; 
+                circle.style.backgroundColor = getRandomColor(); 
+                circle.style.left = Math.random() * (window.innerWidth - 200) + 'px'; 
+                circle.style.top = Math.random() * (window.innerHeight - 200) + 'px'; 
+                circle.innerHTML = i; 
+                circle.onclick = function() { 
+                    hideCircle(this); 
+                }; 
+                container.appendChild(circle); 
+            } 
+ 
+            function getRandomColor() { 
+                var letters = '0123456789ABCDEF'; 
+                var color = '#'; 
+                for (var i = 0; i < 6; i++) { 
+                    color += letters[Math.floor(Math.random() * 16)]; 
+                } 
+                return color; 
+            } 
+        </script> 
+    </main> 
+ 
+    <footer> 
+        &copy;Васюков Тимур, ФБИ-22, 2 курс, 2024 
+    </footer> 
+</body> 
+</html>                       
