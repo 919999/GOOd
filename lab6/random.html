@@ -10,7 +10,7 @@
     <link rel="icon" href="../favicon-32x32.png"> 
     <style>
         .game {
-            border: solid 3px brown;
+            border: solid 3px rgb(0, 82, 97);
             border-radius: 15px;
             margin: 10px auto; 
             text-align: center;
@@ -18,10 +18,10 @@
             padding: 10px;
         }
             div#second_hide {
-            border: 1px solid rgb(131, 54, 26);
+            border: 1px solid rgb(14, 95, 116);
             border-radius: 15px;
             padding: 10px;
-            background-color: rgba(131, 54, 26, 0.499);
+            background-color: rgba(6, 73, 85, 0.499);
             margin-top: 10px;
         }
             div#first {
@@ -30,7 +30,7 @@
             line-height: 13px;
             text-indent: 22px;
             line-height: 33px;
-            border: 1px solid #ba7070;
+            border: 1px solid #00292e;
             border-radius: 15px;
             width: 200px;
             font-size: 18px;
@@ -38,9 +38,9 @@
 
             div#first_green {
             cursor: pointer;
-            background: #de6367;
+            background: #a5e7e7;
             font-size: 18px;
-            color: white;
+            color: rgb(0, 0, 0);
             text-indent: 22px;
             line-height: 33px;
             border: 1PX SOLID #ff4800;
@@ -95,6 +95,20 @@
             let message = document.getElementById('result');
             message.innerHTML = '';
         }
+        function first() {
+            document.getElementById("second_hide").setAttribute("style", "opacity:1; transition: 1s; height: 100%;");
+
+            document.getElementById("first").setAttribute("style", "display: none");
+
+            document.getElementById("first_green").setAttribute("style", "display: block");
+        }
+        function first_yelloy() {
+            document.getElementById("second_hide").setAttribute("style", "display: none");
+
+            document.getElementById("first_green").setAttribute("style", "display: none");
+
+            document.getElementById("first").setAttribute("style", "display: block");
+        }
     </script>
 </head>
 <body>
@@ -131,6 +145,16 @@
                 <button onclick="again()">Сыграть ещё раз</button>
             </div>
         </div>
+        
+        <div id="first" onclick="first()">Показать правила</div>
+        <div id="first_green"; style="display:none" onclick="first_yelloy()">Скрыть правила</div>
+        <div id="second_hide" style="display:none;">1. Сначала нажмите на кнопку "Сыграть в игру"<br>
+            2. Затем подумайте и попробуйте угадать загаданное число от 1 до 100<br>
+            3. Далее введите предполагаемое вами число в пустое окошко<br>
+            4. Не вводите число меньше 1 или больше 100<br>
+            5. Нажмите на кнопку "Угадать"<br>
+            6. Старайтесь угадать до тех пор, пока не появится соощение "Поздравляем, вы выиграли!"</div>
+    </main>
     </main>
 
     <footer> 
