@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Васюков Тимур Александрович. Лабораторная 6</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 30%;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #086f7c;
+            border-right: 1px solid #086f7c;
+        }
+
+        th {
+            background-color: #45a8af;
+        }
+
+        .container {
+            position: relative;
+            min-height: calc(100vh - 50px);
+            padding-bottom: 50px; /* Отступ снизу */
+        }
+
+        .container > button,
+        .container > p {
+            display: block;
+            margin: 0 auto;
+        }
+
+        .balance-input {
+            margin-bottom: 10px; /* Добавляем отступ после строки "БАЛАНС" */
+        }
+
+        .cart-button {
+            display: block;
+            position: fixed;
+            top: 440px;
+            right: 1260px;
+            
+        }
+    </style>
+    <script>
+        function calculateTotal() {
+            const balance = parseFloat(document.getElementById('balance').value);
+            const quantityInputs = document.getElementsByClassName('quantity');
+            let total = 0;
+            let allEmpty = true;
+            let hasNegative = false;
+
+            for (let i = 0; i < quantityInputs.length; i++) {
+                const quantity = parseFloat(quantityInputs[i].value);
+                const price = parseFloat(quantityInputs[i].parentNode.previousElementSibling.textContent);
+
+                if (quantity < 0) {
+                    hasNegative = true;
+                    break;
+                }
+
+                if (!isNaN(quantity) && quantity > 0) {
+                    allEmpty = false;
+                    total += quantity * price;
+                }
+            }
+
+            const message = document.getElementById('message');
+
+            if (hasNegative) {
+                message.textContent = 'Количество фруктов не может быть отрицательным.';
+            } else if (allEmpty) {
+                message.textContent = 'Необходимо выбрать хотя бы один фрукт.';
+            } else if (total > balance) {
+                message.textContent = `Общая сумма (${total}) превышает ваш баланс (${balance}). Оформление заказа невозможно.`;
+            } else {
+                message.textContent = `Заказ успешно оформлен. Общая сумма: ${total}`;
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <header>
+        НГТУ, ФБ, Лабораторная работа 6
+    </header>
+
+    <main>
+        <label for="balance">Мой баланс:</label>
+        <div class="balance-input">
+            <input type="number" id="balance" value="1000">
+        </div>
+        <div class="container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Фрукт</th>
+                        <th>Цена</th>
+                        <th>Количество</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Яблоко</td>
+                        <td>50</td>
+                        <td><input type="number" class="quantity" value="0"></td>
+                    </tr>
+                    <tr>
+                        <td>Апельсин</td>
+                        <td>70</td>
+                        <td><input type="number" class="quantity" value="0"></td>
+                    </tr>
+                    <tr>
+                        <td>Банан</td>
+                        <td>40</td>
+                        <td><input type="number" class="quantity" value="0"></td>
+                    </tr>
+                    <tr>
+                        <td>Груша</td>
+                        <td>60</td>
+                        <td><input type="number" class="quantity" value="0"></td>
+                    </tr>
+                    <tr>
+                        <td>Манго</td>
+                        <td>120</td>
+                        <td><input type="number" class="quantity" value="0"></td>
+                    </tr>
+                    <tr>
+                        <td>Киви</td>
+                        <td>90</td>
+                        <td><input type="number" class="quantity" value="0"></td>
+                    </tr>
+                    <tr>
+                        <td>Виноград</td>
+                        <td>80</td>
+                        <td><input type="number" class="quantity" value="0"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <button class="cart-button" onclick="calculateTotal()">ОК</button>
+            <p id="message"></p>
+        </div>
+    </main>
+
+    <footer>
+        &copy;Васюков Тимур, ФБИ-21, 2 курс, 2024
+    </footer>
+    
+</body>
+</html>
