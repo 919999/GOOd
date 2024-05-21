@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Васюков Тимур Александрович. Лабораторная 6</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon-16x16.png">
+    <link rel="icon" href="../favicon-32x32.png">
+    <style>
+        .color {
+            border: 5px solid rgb(45, 99, 109);
+        font-size: 50px;
+        border-radius: 15px;
+        margin-left: 415px;
+        text-align: center;
+        width: 600px;
+        height: 200px;
+        background-color: rgb(234, 234, 78);
+        cursor: pointer;
+        color: rgb(45, 99, 109);
+        transition: background-color 0.5s, color 0.5s;
+        }
+    </style>
+<script>
+    function changeColor(div) {
+        if (div.style.backgroundColor === 'rgb(234, 234, 78)') {
+            div.style.backgroundColor = 'rgb(234, 86, 78)';
+            div.style.color = 'white';
+            document.getElementById('color-name').innerHTML = 'Красный';
+        } 
+        else if (div.style.backgroundColor === 'rgb(234, 86, 78)') {
+            div.style.backgroundColor = 'rgb(153, 255, 153)'; // Светло-зеленый
+            div.style.color = 'rgb(45, 99, 109)';
+            document.getElementById('color-name').innerHTML = 'Зеленый';
+        } 
+        else if (div.style.backgroundColor === 'rgb(153, 255, 153)') {
+            div.style.backgroundColor = 'rgb(204, 153, 255)'; // Светло-фиолетовый
+            div.style.color = 'white';
+            document.getElementById('color-name').innerHTML = 'Фиолетовый';
+        } 
+        else if (div.style.backgroundColor === 'rgb(204, 153, 255)') {
+            div.style.backgroundColor = 'rgb(255, 204, 204)'; // Светло-розовый
+            div.style.color = 'rgb(45, 99, 109)';
+            document.getElementById('color-name').innerHTML = 'Розовый';
+        } 
+        else {
+            div.style.backgroundColor = 'rgb(234, 234, 78)';
+            div.style.color = 'rgb(45, 99, 109)';
+            document.getElementById('color-name').innerHTML = 'Жёлтый';
+        }
+    }
+</script>
+
+</head>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная работа 6
+    </header>
+    
+    <main>
+        <div class="color" ondblclick="changeColor(this)">
+            Цвет: <span id="color-name">Жёлтый</span><br>
+            Сделайте двойной щелчок, чтобы сменить.
+        </div>
+    </main>
+
+    <footer>
+        &copy;Васюков Тимур, ФБИ-22, 2 курс, 2024
+    </footer>
+</body>
+</html>
