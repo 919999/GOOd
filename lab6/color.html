@@ -24,33 +24,33 @@
         }
     </style>
 <script>
-    function changeColor(div) {
-        if (div.style.backgroundColor === 'rgb(234, 234, 78)') {
-            div.style.backgroundColor = 'rgb(234, 86, 78)';
-            div.style.color = 'white';
-            document.getElementById('color-name').innerHTML = 'Красный';
-        } 
-        else if (div.style.backgroundColor === 'rgb(234, 86, 78)') {
-            div.style.backgroundColor = 'rgb(153, 255, 153)'; // Светло-зеленый
-            div.style.color = 'rgb(45, 99, 109)';
-            document.getElementById('color-name').innerHTML = 'Зеленый';
-        } 
-        else if (div.style.backgroundColor === 'rgb(153, 255, 153)') {
-            div.style.backgroundColor = 'rgb(204, 153, 255)'; // Светло-фиолетовый
-            div.style.color = 'white';
-            document.getElementById('color-name').innerHTML = 'Фиолетовый';
-        } 
-        else if (div.style.backgroundColor === 'rgb(204, 153, 255)') {
-            div.style.backgroundColor = 'rgb(255, 204, 204)'; // Светло-розовый
-            div.style.color = 'rgb(45, 99, 109)';
-            document.getElementById('color-name').innerHTML = 'Розовый';
-        } 
-        else {
-            div.style.backgroundColor = 'rgb(234, 234, 78)';
-            div.style.color = 'rgb(45, 99, 109)';
-            document.getElementById('color-name').innerHTML = 'Жёлтый';
-        }
+function changeColor(div) {
+    if (div.style.backgroundColor === 'rgb(234, 234, 78)') { // желтый
+        div.style.backgroundColor = 'rgb(234, 86, 78)'; // красный
+        div.style.color = 'white';
+        document.getElementById('color-name').innerHTML = 'Красный';
+    } 
+    else if (div.style.backgroundColor === 'rgb(234, 86, 78)') { // красный
+        div.style.backgroundColor = 'rgb(153, 255, 153)'; // светло-зеленый
+        div.style.color = 'rgb(45, 99, 109)';
+        document.getElementById('color-name').innerHTML = 'Зеленый';
+    } 
+    else if (div.style.backgroundColor === 'rgb(153, 255, 153)') { // светло-зеленый
+        div.style.backgroundColor = 'rgb(204, 153, 255)'; // светло-фиолетовый
+        div.style.color = 'white';
+        document.getElementById('color-name').innerHTML = 'Фиолетовый';
+    } 
+    else if (div.style.backgroundColor === 'rgb(204, 153, 255)') { // светло-фиолетовый
+        div.style.backgroundColor = 'rgb(255, 204, 204)'; // светло-розовый
+        div.style.color = 'rgb(45, 99, 109)';
+        document.getElementById('color-name').innerHTML = 'Розовый';
+    } 
+    else {
+        div.style.backgroundColor = 'rgb(234, 234, 78)'; // желтый
+        div.style.color = 'rgb(45, 99, 109)';
+        document.getElementById('color-name').innerHTML = 'Жёлтый';
     }
+}
 </script>
 
 </head>

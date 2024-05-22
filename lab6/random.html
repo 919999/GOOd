@@ -60,7 +60,7 @@
         }
         function guess() {
             let input = document.getElementById('user-number');
-            let userNumber = input.value.trim(); 
+            let userNumber = input.value.trim();    
             let message = document.getElementById('result');
             if (userNumber === '' || isNaN(userNumber)) {
             message.innerHTML = 'Пожалуйста, введите число!';
@@ -96,7 +96,7 @@
             message.innerHTML = '';
         }
         function first() {
-            document.getElementById("second_hide").setAttribute("style", "opacity:1; transition: 1s; height: 100%;");
+            document.getElementById("second_hide").setAttribute("style", "opacity:1; transition: 1s; height: 100%;","display: block");
 
             document.getElementById("first").setAttribute("style", "display: none");
 
