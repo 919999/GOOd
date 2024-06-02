@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Васюков Тимур Александрович. Лабораторная 7</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon-16x16.png">
+    <link rel="icon" href="../favicon-32x32.png">
+    <style>
+        main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 50px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 25px;
+            background-color: #ffffff;
+            color: #000000;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        #weatherInfo {
+            margin-top: 30px;
+            padding: 30px;
+            background-color: #f2f2f2;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            color: #000000;
+            font-size: 22px;
+            text-align: left; 
+            border: solid 2px #000000;
+            display: none;  
+            margin-bottom: 100px;
+            border-radius: 20px;   
+        }
+        .weather-icon {
+        width: 600px;
+        height: 350px;
+        }
+    </style>
+    </style>
+    <script>
+    function getWeatherForecast() {
+        const apiUrl = 'https://api.open-meteo.com/v1/forecast?latitude=55.0415&longitude=82.9346&hourly=temperature_2m&timezone=Asia%2FBangkok';
+        fetch(apiUrl)
+        .then(response => response.json())
+        .then(data => {
+            const temperatures = data.hourly.temperature_2m;
+            const times = data.hourly.time;
+
+            const weatherInfo = document.getElementById('weatherInfo');
+            const today = new Date().toISOString().split('T')[0];
+            let tempAt8 = '', tempAt12 = '', tempAt20 = '';
+            times.forEach((time, index) => {
+                const date = time.split('T')[0];
+                const hour = time.split('T')[1].split(':')[0];
+                if (date === today) {
+                    if (hour === '08') {
+                        tempAt8 = temperatures[index];
+                    } 
+                    else if (hour === '12') {
+                        tempAt12 = temperatures[index];
+                    } 
+                    else if (hour === '20') {
+                        tempAt20 = temperatures[index];
+                    }
+                }
+            });
+            weatherInfo.innerHTML = `
+            <h2>Прогноз погоды в Новосибирске</h2>
+            <p>Утром (08:00): ${tempAt8} °C</p>
+            <p>Днём (12:00): ${tempAt12} °C</p>
+            <p>Вечером (20:00): ${tempAt20} °C</p>
+            <img src="1.jpg" class="weather-icon">`; 
+            weatherInfo.style.display = 'block';
+        })
+        .catch(error => {
+            console.error('Ошибка при получении данных о погоде:', error);
+            document.getElementById('weatherInfo').innerText = 'Ошибка при получении данных.';
+        });
+    }
+    </script>
+</head>
+<body>
+    
+    <header>
+        НГТУ, ФБ, Лабораторная работа 7
+    </header>
+
+    <main>
+        <button onclick="getWeatherForecast()">Показать прогноз погоды</button>
+            <div id="weatherInfo"></div>
+    </main>
+
+    <footer>
+        &copy;Васюков Тимур, ФБИ-22, 2 курс, 2024
+    </footer>
+</body>
+</html>
