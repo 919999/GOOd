@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Новости Геофинансы</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon-16x16.png">
+    <link rel="icon" href="favicon-32x32.png">
+    <style>
+        main {
+            max-width: 1050px;
+            margin: 0 auto;
+            padding: 20px;
+            margin-top: -20px;
+        }
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            max-width: 100%; 
+            margin: 0 auto;
+        }
+        .card {
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            margin: 5px;
+            width: 22%;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+            overflow: hidden;
+            margin-bottom: 50px;
+            height: 330px;
+            position: relative;
+            cursor: pointer;
+        }
+        .card img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+        }
+        .card h2 {
+            margin: 15px;
+            font-size: 13px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+        .card p {
+            margin: 10px;
+            font-size: 14px;
+            color: #666;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+        .card a {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #ffffff;
+            color: rgb(0, 0, 0);
+            border: none;
+            text-align: center;
+            cursor: pointer;
+            margin-top: 10px;
+            position: absolute; 
+            bottom: 0; 
+            text-align: left;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: 12px;
+        }
+        .date {
+            position: absolute;
+            bottom: 25px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+        .card-image {
+            transition: transform 0.3s ease;
+        }
+        .card-image:hover {
+            transform: scale(1.1); 
+        }  
+        .more-link {
+            text-decoration: none; 
+        }
+        header{
+            background-color: #e0e0e0;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            width: 100%;
+            max-width: 1050px;
+            margin: 0 auto;
+            position: relative;
+            height: 140px;
+            z-index: 100;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+        footer {
+            background-color: #e0e0e0;
+            color: rgb(79, 79, 79);
+            text-align: left;
+            padding: 10px 0;
+            width: 100%;    
+            max-width: 1050px;
+            margin: 0 auto;
+            position: relative;
+            height: 80px;
+            padding-left: 10px;
+            font-size: 13px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+
+        }
+        h1 {
+            color: #333;
+            margin-top: 20px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+        p {
+            color: #666;
+            font-size: 20px;
+            line-height: 35px;
+            margin-top: 40px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+        .head-image {
+            display: block;
+            margin-left: 80px; 
+            margin-top: 20px; 
+        }
+        .header-line {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 23px;   
+            background-color: rgb(47, 47, 47);
+        }
+        .header-line2 {
+            position: absolute;
+            top: 105px;
+            left: 0;
+            width: 100%;
+            height: 2px;   
+            background-color: rgb(255, 255, 255);
+        }
+        .burger-icon {
+            position: fixed;
+            top: 60px;
+            right: 150px;
+            cursor: pointer;
+            color: black;
+            font-size: 20px;
+            border: 2px solid black;
+            padding: 5px;
+            border-radius: 5px;
+        }
+        #menu-toggle {
+            display: none;
+        }
+        .menu {
+            display: none;
+            position: fixed;
+            top: 110px;
+            right: 115px;
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            width: 100%;
+            max-width: 100px;
+            box-sizing: border-box;
+            z-index: 1;
+        }
+
+        #menu-toggle:checked ~ .menu {
+            display: block;
+        }
+
+        .menu a {
+            display: block;
+            color: #fff;
+            text-decoration: none;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-line"></div>
+        <div class="header-line2"></div>
+        <a href="index.html">
+            <img class="head-image" src="logo.png" alt="Логотип Геофинансы">
+        </a>
+        <label for="menu-toggle" class="burger-icon">☰</label>
+    </header>
+    <input type="checkbox" id="menu-toggle">
+    <div class="menu">
+        <a href="index.html">Главная</a>
+        <a href="news.html">Новости</a>
+        <a href="curs.html">Курс</a>  
+        <a href="contact.html">Контакты</a>
+        <a href="video.html">Видео</a>
+    </div>
+    <main>
+        <h1>Новости Геофинансы</h1>
+        <div class="card-container">
+            <div class="card">
+                <img src="1n.jpg" alt="Новость 1" class="card-image">
+                <h2>"Геофинансы" расширяют свое присутствие в Азиатско-Тихоокеанском регионе</h2>    
+                <p class="date">Дата: 15 мая 2023 года</p>
+                <a href="1n.html" class="more-link">ПОДРОБНЕЕ →</a>
+            </div>
+            <div class="card">
+                <img src="2n.jpg" alt="Новость 2" class="card-image">
+                <h2>"Геофинансы" запускают инновационную платформу для управления активами</h2> 
+                <p class="date">Дата: 3 июня 2023 года</p>
+                <a href="2n.html" class="more-link">ПОДРОБНЕЕ →</a>
+            </div>
+            <div class="card">
+                <img src="3n.jpg" alt="Новость 3" class="card-image">
+                <h2 >"Геофинансы" объявляют о стратегическом партнерстве с ведущей горнодобывающей компанией</h2> 
+                <p class="date">Дата: 5 августа 2023 года</p>
+                <a href="3n.html" class="more-link">ПОДРОБНЕЕ →</a>
+            </div>
+            <div class="card">
+                <img src="4n.jpg" alt="Новость 4" class="card-image">
+                <h2 >"Геофинансы" получают престижную награду за инновации в области устойчивого финансирования</h2> 
+                <p class="date">Дата: 5 августа 2023 года</p>
+                <a href="4n.html" class="more-link">ПОДРОБНЕЕ →</a>
+            </div>
+            <div class="card">
+                <img src="5n.jpg" alt="Новость 5" class="card-image">
+                <h2 >"Геофинансы" расширяют свои услуги по управлению рисками для клиентов</h2> 
+                <p class="date">Дата: 15 сентября 2023 года</p>
+                <a>ПОДРОБНЕЕ →</a>
+            </div>
+            <div class="card">
+                <img src="6n.jpg" alt="Новость 6" class="card-image">
+                <h2 >"Геофинансы" запускают инвестиционный фонд для поддержки инновационных проектов</h2> 
+                <p class="date">Дата: 1 октября 2023 года</p>
+                <a>ПОДРОБНЕЕ →</a>
+            </div>
+            <div class="card">
+                <img src="7n.jpg" alt="Новость 7" class="card-image">
+                <h2 >"Геофинансы" укрепляют свое присутствие в Латинской Америке</h2> 
+                <p class="date">Дата: 25 октября 2023 года</p>
+                <a>ПОДРОБНЕЕ →</a>
+            </div>
+            <div class="card">
+                <img src="8n.jpg" alt="Новость 8" class="card-image">
+                <h2 >"Геофинансы" запускают программу обучения для финансовых специалистов отрасли</h2> 
+                <p class="date">Дата: 12 ноября 2023 года</p>
+                <a>ПОДРОБНЕЕ →</a>
+            </div>
+            <div class="card">
+                <img src="9n.jpg" alt="Новость 9" class="card-image">
+                <h2 >"Геофинансы" объявляют о ключевых кадровых назначениях</h2> 
+                <p class="date">Дата: 1 декабря 2023 года</p>
+                <a>ПОДРОБНЕЕ →</a>
+            </div>
+            <div class="card">
+                <img src="10n.jpg" alt="Новость 10" class="card-image">
+                <h2 >"Геофинансы" представляют отчет о положительных финансовых результатах за 2023 год</h2> 
+                <p class="date"> Дата: 15 декабря 2023 года</p>
+                <a>ПОДРОБНЕЕ →</a>
+            </div>
+            <div class="card">
+                <img src="11n.jpg" alt="Новость 11" class="card-image">
+                <h2 >"Геофинансы" заключают партнерство с ведущим университетом для совместных исследований</h2> 
+                <p class="date">Дата: 10 января 2024 года</p>
+                <a>ПОДРОБНЕЕ →</a>
+            </div>
+            <div class="card">
+                <img src="12n.jpg" alt="Новость 12" class="card-image">
+                <h2 >"Геофинансы" получают престижную награду за вклад в развитие зеленого финансирования</h2> 
+                <p class="date">Дата: 5 февраля 2024 года</p>
+                <a>ПОДРОБНЕЕ →</a>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <h4>ЗАО Инвестиционная компания «Геофинансы»  © 2008-2023 • Политика конфиденциальности<br>
+            Телефон: + 7 (495) 728-49-65</h4>
+    </footer>
+</body>
+</html>

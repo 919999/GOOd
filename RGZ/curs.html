@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Валютный Калькулятор</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon-16x16.png">
+    <link rel="icon" href="favicon-32x32.png">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .calculator {
+            background-color: #fff; 
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            width: 400px;
+        }
+
+        .calculator h2 {
+            text-align: center;
+            margin-top: 0;
+        }
+
+        .calculator input,
+        .calculator select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #004a90;
+            font-size: 16px;
+        }
+
+        .calculator button {
+            width: 100%;
+            padding: 10px;
+            background-color: #00588f;
+            color: #fff;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .calculator button:hover {
+            background-color: #cdcdcd;
+        }
+
+        .calculator #resCurr {
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+
+    <script>
+        function convertation() {
+            const url = 'https://www.cbr-xml-daily.ru/daily_json.js';
+
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    const tjs = data.Valute.BYN;
+                    const cur = tjs.Value;
+                    const nominal = tjs.Nominal;
+                    console.log(data.Valute.BYN);
+
+                    let summ = Number(currCount.value);
+                    let fir_curr = String(selectFirCurrency.value);
+                    let sec_curr = selectSecCurrency.value;
+                    let result;
+                    let curs = fir_curr + sec_curr;
+                    console.log(curs);
+
+                    switch (curs) {
+                        case 'RUBBYN':
+                            result = ((summ / cur) * nominal).toFixed(2);
+                            break;
+                        case 'BYNRUB':
+                            result = ((summ * cur) / nominal).toFixed(2);
+                            break;
+                        case 'RUBRUB':
+                        case 'BYNBYN':
+                            result = summ.toFixed(2);
+                            break;
+                        default:
+                            result = 'Incorrect input';
+                    }
+                    resCurr.innerHTML = result;
+                })
+                .catch(error => {
+                    console.error('Ошибка запроса:', error);
+                });
+        }
+    </script>
+</head>
+<body>
+    <header> 
+    </header>
+    <main>
+        <a style="font-size: 20px;" href="index.html">←Назад</a>
+        <div class="calculator">
+            <h2>Валютный Калькулятор</h2>
+            <p>Валюта для конвертации
+                <select id="selectFirCurrency">
+                    <option value="RUB">RUB</option>
+                    <option value="BYN">BYN</option>
+                </select>
+            </p>
+             Сумма
+             <input type="text" id="currCount">
+             <p>
+                Во что конвертируем
+                <select id="selectSecCurrency">
+                    <option value="RUB">RUB</option>
+                    <option value="BYN">BYN</option>
+                </select>
+            </p>
+            <button onclick="convertation()">Конвертировать</button>
+            <div id="resCurr"></div>
+        </div>
+    </main>
+    <footer> 
+    </footer>
+</body>
+</html>
