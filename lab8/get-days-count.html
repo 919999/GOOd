@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Васюков Тимур Александрович. Лабораторная 8</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon-16x16.png">
+    <link rel="icon" href="../favicon-32x32.png">
+    <script src="get-days-count.js"></script>  
+    <style>
+        div {
+                background-color: rgb(166, 223, 243);   
+                padding: 20px;
+                border-radius: 5px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            }
+            input[type=date] {
+                padding: 8px;
+                border: 1px solid #000000;  
+                border-radius: 4px;
+                font-size: 16px;
+            }
+            button {
+                background-color: #1c00a7;  
+                color: white;
+                padding: 10px 20px;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+                font-size: 13px;    
+            }
+
+            button.clear-btn {
+                background-color: #ff0000;
+                width: 180px;
+            }
+            #date {
+                margin-top: 24px;
+                font-size: 20px;        
+    }
+    </style> 
+</head>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная работа 8
+    </header>
+
+    <main>
+        <div>
+            <label>Дата рождения:<input type="date"></label>
+        </div>
+
+        <div>
+            <button onclick="showDaysCount()">Показать число дней</button><button class="clear-btn" onclick="clearForm()">Очистить</button>
+        </div>
+
+        <div id="date"></div>
+
+        
+    </main>
+
+    <footer>
+        &copy;Васюков Тимур, ФБИ-22, 2 курс, 2024
+    </footer>   
+</body>
+</html>
