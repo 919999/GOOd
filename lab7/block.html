@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Васюков Тимур Александрович. Лабораторная 7</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon-16x16.png">
+    <link rel="icon" href="../favicon-32x32.png">
+    <script>
+        function addNewBlock() {
+            let newBlock = document.createElement('div');
+            newBlock.style.backgroundColor = 'yellow';
+            newBlock.style.height = '40px';
+            newBlock.style.border = 'solid 5px brown';
+            newBlock.style.marginTop = '10px';
+            newBlock.style.width = '250px';
+            
+
+            document.querySelector('main').appendChild(newBlock);
+        }
+        function addNewBloks() {
+            let main = document.querySelector('main');
+            let blocksCount = parseFloat(document.getElementById('blocksCount').value) || 0;
+            for(let i=0; i<blocksCount; i++) {
+                let newBlock = document.createElement('div');
+                newBlock.style.backgroundColor = 'rgb(255, 0, 255)';
+                newBlock.style.height = '40px';
+                newBlock.style.marginTop = '10px';
+                newBlock.style.border = 'solid 5px rgb(238, 130, 238)';
+                newBlock.style.width = ((i*50)+175)+'px';
+                newBlock.innerHTML = `Блок № ${i+1}: 2*${i}<sup>2</sup> = ${2 * i ** 2}`;
+
+                main.appendChild(newBlock);
+            }
+        }
+        function add20_50() {
+            let main = document.querySelector('main');
+            for(let i = 20; i<=50; i+=2.5) {
+                let newBlock = document.createElement('div');
+                newBlock.style.border = 'solid 5px rgb(205, 133, 63)';
+                newBlock.style.width = '40px';
+                newBlock.style.backgroundColor = 'rgb(230, 230, 250)';
+                newBlock.style.marginTop = '10px';
+                newBlock.style.height = '40px';
+                newBlock.style.width = '40px';
+
+
+
+                newBlock.innerHTML = `${i}`;
+    
+
+                main.appendChild(newBlock);
+
+            }
+        }
+        function add10_80() {
+                let main = document.querySelector('main');
+                for(let i = 10; i>=-80; i-=3) {
+                    let newBlock = document.createElement('div');
+                    newBlock.style.width = '40px';
+                    newBlock.style.height = '40px';
+                    newBlock.style.border = '5px solid rgb(205, 92, 92)';
+                    newBlock.style.marginTop = '10px';
+                    newBlock.style.borderRadius = '30px';
+                    newBlock.style.textAlign = 'center';
+                    newBlock.style.backgroundColor = 'rgb(240, 128, 128)';
+                    newBlock.style.display = 'inline-block';
+
+                    newBlock.innerHTML = `${i}`;
+
+                    main.appendChild(newBlock);
+                }
+            }
+            function add1_10() {
+                let main = document.querySelector('main');
+                for(let i=0; i<10; i++) {
+                    let newBlock = document.createElement('div');
+                    newBlock.style.backgroundColor = 'rgb(220, 20, 60)';
+                    newBlock.style.height = '40px';
+                    newBlock.style.marginTop = '10px';
+                    newBlock.style.border = '5px solid rgb(219, 112, 147)';
+                    newBlock.style.opacity = (i*10)+'%';
+
+                    newBlock.innerText = (i+1);
+
+                    main.appendChild(newBlock);
+                }
+            }
+            function addcol() {
+                let main = document.querySelector('main');
+                let col = parseFloat(document.getElementById('col').value) || 0;
+                let counter = col; 
+                for(let i = col; i>0; i-=1) {
+                    let newBlock = document.createElement('div');
+                    newBlock.style.width = '40px';
+                    newBlock.style.height = '40px';
+                    newBlock.style.border = '1px solid';
+                    newBlock.style.margin = '20px';
+                    newBlock.style.borderRadius = '30px';
+                    newBlock.style.textAlign = 'center';
+                    newBlock.style.display = 'inline-block';
+                    newBlock.style.lineHeight = '40px'
+                    if (i%2==0) {
+                        newBlock.style.backgroundColor = "pink";
+                    }
+                    else{
+                        newBlock.style.backgroundColor = "blue";
+                    }
+
+                    newBlock.textContent = counter; 
+                    counter--; 
+
+                    main.appendChild(newBlock);
+                }
+            }
+    </script>
+</head>
+<body>
+
+    <header>
+        НГТУ, ФБ, Лабораторная работа 7
+    </header>
+
+    <main>
+       <button onclick="addNewBlock()">Добавить блок</button>
+       <button onclick="addNewBloks()">Добавить блоки</button>
+       <input type="number" id="blocksCount" placeholder="Введите число блоков">
+       <button onclick="add20_50()">20 => 50</button>
+       <button onclick="add10_80()">10=>-80</button>
+       <button onclick="add1_10()">Полупрозрачные блоки</button>
+       <button onclick="addcol()">Цветные круги</button>
+        <input type="number" id="col" placeholder="Введите число кругов">
+    </main>
+
+    <footer>
+        &copy;Васюков Тимур, ФБИ-22, 2 курс, 2024
+    </footer>
+
+    
+</body>
+</html>
