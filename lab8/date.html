@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Васюков Тимур Александрович. Лабораторная 8</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon-16x16.png">
+    <link rel="icon" href="../favicon-32x32.png">
+    <script src="lab8.js"></script>
+    <style>
+       div {
+        border: solid 5px rgb(255, 255, 255);
+        border-radius: 5px;
+        text-align: center;
+        width: 270px;
+        margin-top: 15px;
+        margin-left: 585px;
+        font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        color: rgb(0, 0, 0);
+       }
+       main {
+        margin-bottom: 90px;   
+       }
+    </style>
+</head>
+<body  onload="showDate()">
+    <header>
+        НГТУ, ФБ, Лабораторная работа 8
+    </header>
+
+    <main>
+        <div id="ru-date"></div>
+        <div id="fr-date"></div>
+        <div id="ar-date"></div>
+        <div id="kr-date"></div>
+        <div id="in-date"></div>
+        <div id="current-year"></div>
+        <div id="current-month"></div>
+        <div id="current-day"></div>
+        <div id="current-weekday"></div>
+
+        <label for="day">День:</label>
+        <input type="number" id="day" min="1" max="31" value="1">
+
+        <label for="month">Месяц:</label>
+        <input type="number" id="month" min="1" max="12" value="1">
+
+        <label for="year">Год:</label>
+        <input type="number" id="year" min="1" max="9999" value="2024">
+
+        <button onclick="showWeekday()">День недели</button>
+
+        <div id="weekday-result"></div>
+    </main>
+
+    <footer>
+        &copy;Васюков Тимур, ФБИ-22, 2 курс, 2024
+    </footer>
+</body>
+</html>
