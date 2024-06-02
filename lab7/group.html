@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Васюков Тимур Александрович. Лабораторная 7</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon-16x16.png">
+    <link rel="icon" href="../favicon-32x32.png">
+    <style>
+        #table {
+            width: 100%;
+            border: 2px solid #0019bb;
+            font-family: Arial, sans-serif;
+            
+        }
+
+        #table th, #table td {
+            padding: 5px;
+            text-align: left;
+            border-bottom: #0019bb;
+        }
+
+        #table th {
+            background-color: #0019bb;
+        }
+
+        button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            font-size: 20px;
+            background-color: #0019bb;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-left: 20px;
+        }
+
+        #detail {
+            margin-top: 20px;
+            font-weight: bold;
+            border: 2px solid  #0019bb;
+            width: 500px;
+            text-align: left;
+        }
+    </style>
+    <script>
+        function showShares() {
+            const prices = [
+        2859.60, 2910.60, 2990.00, 3012.60, 3001.60, 3072.00, 3132.80, 3080.20, 3079.80
+        ];
+        const dates = [
+        '31.05.2024', '30.05.2024', '29.05.2024', '28.05.2024', '27.05.2024', '24.05.2024', '23.05.2024',
+        '22.05.2024', '21.05.2024'
+        ];
+        let table = document.getElementById('table');
+        table.innerHTML = '';
+        let headerRow = table.insertRow(-1);
+        headerRow.insertCell(0).innerText = 'Дата';
+        headerRow.insertCell(1).innerText = 'Цена акций';
+        headerRow.insertCell(2).innerText = 'Разница';
+        let sum = 0, max = prices[0], min = prices[0];
+        for(let i = 0; i < prices.length; i++) {
+            let tr = table.insertRow(-1);
+            tr.insertCell(0).innerText = dates[i];
+            tr.insertCell(1).innerText = prices[i];
+            let diffCell = tr.insertCell(2);
+            if (i > 0) {
+                let diff = prices[i] - prices[i - 1];
+                diffCell.innerText = diff.toFixed(2);
+                }
+                else {
+                    diffCell.innerText = '—';
+                }
+                sum += prices[i];
+                if (prices[i] > max) max = prices[i];
+                if (prices[i] < min) min = prices[i];
+            }
+            let average = sum / prices.length;
+            average = average.toFixed(2);
+
+            let detail = document.getElementById('detail');
+            detail.innerText = `Среднее значение: ${average}
+            Максимальное значение: ${max}
+            Минимальное значение: ${min}`;
+
+            document.querySelector('button').remove();
+        }
+
+    </script>
+</head>
+<body>
+
+    <header>
+        НГТУ, ФБ, Лабораторная работа 7
+    </header>
+
+    <main>
+        <button onclick="showShares()">Курс акций компании Группа Позитив</button>
+        <table border="5" id="table" ></table>
+        <div id="detail"></div>
+    </main>
+    
+    <footer>
+        &copy;Васюков Тимур, ФБИ-22, 2 курс, 2024
+    </footer>
+</body>
+</html>
